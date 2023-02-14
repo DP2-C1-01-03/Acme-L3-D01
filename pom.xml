@@ -22,7 +22,7 @@
 	<description>This is the ficticional Acme L3 project for DPII.</description>
 
 	<groupId>Acme</groupId>    
-	<artifactId>C1.01.03-Acme-L3</artifactId>
+	<artifactId>Acme-L3-D01</artifactId>
 	<version>23.1.0</version>
 	<packaging>war</packaging>
 
