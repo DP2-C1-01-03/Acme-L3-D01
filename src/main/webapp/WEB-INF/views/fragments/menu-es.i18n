@@ -18,7 +18,6 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
-master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.anonymous.favourite-link-s2 = 45813385F: Rodríguez Ruiz, Antonio
 
 # master.menu.administrator ###################################################
