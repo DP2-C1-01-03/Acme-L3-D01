@@ -55,9 +55,7 @@ public class Banner extends AbstractEntity {
 	
 	// Derived attributes -----------------------------------------------------
 	
-	@Getter(AccessLevel.NONE) protected LocalDateTime visibleUntilDateTime;
-	
-	public LocalDateTime getVisibleUntilDateTime() {
+	public LocalDateTime getDisplayEndDateTime() {
 		return (LocalDateTime) displayPeriod.addTo(updateDateTime);
 	}
 
