@@ -13,10 +13,9 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
-import org.hibernate.validator.constraints.time.DurationMax;
+import org.hibernate.validator.constraints.time.DurationMin;
 
 import acme.framework.data.AbstractEntity;
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -39,7 +38,7 @@ public class Banner extends AbstractEntity {
 	@Past
 	protected LocalDateTime updateDateTime;
 	
-	@DurationMax(days=7)
+	@DurationMin(days=7)
 	protected Duration displayPeriod;
 
 	@NotBlank
