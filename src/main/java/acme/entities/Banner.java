@@ -1,19 +1,18 @@
 
 package acme.entities;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.PastOrPresent;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
-import org.hibernate.validator.constraints.time.DurationMin;
 
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
@@ -30,33 +29,31 @@ public class Banner extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@CreationTimestamp
-	@Past
-	protected LocalDateTime creationDateTime;
-	
-	@UpdateTimestamp
-	@Past
-	protected LocalDateTime updateDateTime;
-	
-	@DurationMin(days=7)
-	protected Duration displayPeriod;
+	@Temporal(TemporalType.TIMESTAMP)
+	@PastOrPresent
+	protected Date creationDateTime;
 
-	@NotBlank
-	protected String sector;
+	@Temporal(TemporalType.TIMESTAMP)	
+	@PastOrPresent
+	protected Date updateDateTime;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Future
+	protected Date displayEndDateTime;
 
 	@URL
 	@NotNull
 	protected String pictureUrl;
 	
-	@Length(max=76)
+	@Length(max=75)
 	@NotNull
 	protected String slogan;
 	
-	// Derived attributes -----------------------------------------------------
+	@URL
+	@NotNull
+	protected String webDocument;
 	
-	public LocalDateTime getDisplayEndDateTime() {
-		return (LocalDateTime) displayPeriod.addTo(updateDateTime);
-	}
+	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
 }
