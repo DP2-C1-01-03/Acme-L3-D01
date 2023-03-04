@@ -4,8 +4,11 @@ package acme.entities.notes;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -25,6 +28,8 @@ public class Note extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
 	protected Date				moment;
 
 	@NotBlank
